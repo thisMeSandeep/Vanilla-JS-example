@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button>btn 1</button>
+        <button>btn 2</button>
+        <button>btn 3</button>
+        <button>btn 4</button>
+    </body>
+    <script>
+   const btn= document.querySelectorAll('button');
+//btn is an array , well not exactly array , it's node list !
+btn.forEach ( (element)=>{
+ element.addEventListener('click' , ()=>alert("hello bro"));
+});
+  </script>
+</html>

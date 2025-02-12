@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+             }
+           .myBox{
+              width: 200px;
+              height: 200px;
+              background: red;
+              border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="myBox">My box</div>
+
+        <script>
+        let boxElem=document.querySelector(".myBox");
+        let styling=getComputedStyle(boxElem);
+
+        //get computed style returns an object containing styling of perticular element
+
+        console.log(styling);  // this will log all styling including default
+
+        //to log specific styling 
+
+        // background color
+        console.log(styling.backgroundColor);
+        //border
+        console.log(styling.border)
+        //width and height
+       console.log("width:", styling.width , "height:" , styling.height)
+     </script>
+
+    </body>
+</html>

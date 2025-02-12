@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background: #333;
+    transition: background 0.3s, opacity 0.3s; /* Smooth transition for color and opacity changes */
+}
+
+.box:hover {
+    background: hotpink; /* Change the color of the hovered box */
+}
+
+/* Reduce the opacity of sibling boxes that are not hovered */
+.container .box:not(:hover) {
+    opacity: 0.2;
+}
+
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+   </div>
+    
+</body>
+</html>

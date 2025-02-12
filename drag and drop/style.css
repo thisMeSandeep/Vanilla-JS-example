@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.square{
+    width: 200px;
+    height: 200px;
+}
+.beige{
+    background: rgb(227, 227, 199);
+}
+.brown{
+    background: rgb(96, 54, 54);
+}
+#gameboard{
+    display: flex;
+}
+#info{
+    height: 30px;
+}
+.chess-piece{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: grab;
+}

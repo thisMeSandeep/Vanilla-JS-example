@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer Demo</title>
+    <style>
+        .container {
+            height: 200vh;
+            background-color: #f0f0f0;
+        }
+
+        .target {
+            width: 100px;
+            height: 100px;
+            background-color: #4caf50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border-radius: 10px;
+            margin: 20px; /* Add margin to make them more visible */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="target" data-target="120">0</div>
+        <div class="target" data-target="140">0</div>
+        <div class="target" data-target="80">0</div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const targets = document.querySelectorAll('.target'); // Select all target elements
+
+            function customFunction(target) {
+                const duration = 3000; // 3 seconds
+                const targetNum = parseInt(target.getAttribute('data-target'), 10);
+                const increment = targetNum / (duration / 50); // 50ms interval for setInterval
+                let initialValue = 0;
+
+                // Set up the interval
+                const interval = setInterval(() => {
+                    initialValue += increment;
+                    if (initialValue >= targetNum) {
+                        initialValue = targetNum;
+                        clearInterval(interval);
+                    }
+                    target.textContent = Math.floor(initialValue);
+                }, 50);
+            }
+
+            // Defining callback function
+            const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log("Element is in viewport");
+                        entry.target.style.backgroundColor = '#2196f3';
+                        customFunction(entry.target); // Call customFunction for the intersecting target
+                        observer.unobserve(entry.target); // Stop observing after the animation
+                    } else {
+                        console.log('Element is out of the viewport.');
+                        entry.target.style.backgroundColor = '#4caf50';
+                    }
+                });
+            };
+
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+
+            targets.forEach(target => observer.observe(target)); // Observe each target
+        });
+    </script>
+</body>
+</html>

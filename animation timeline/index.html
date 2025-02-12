@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            max-width: 100%;
+            margin: auto;
+            height: 100vh;
+            background: aqua;
+            position: relative;
+            overflow-y: scroll;
+            position: relative;
+        }
+        .box{
+            margin: auto;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            
+            background: red;
+            animation: animate 1ms alternate;
+            animation-timeline:view();
+        }
+        @keyframes animate{
+            0%{
+                opacity: 0;
+                transform: scale(0);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .stretch{
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stretch"></div>
+        <div class="box"></div>
+        <div class="stretch"></div>
+    </div>
+</body>
+</html>
